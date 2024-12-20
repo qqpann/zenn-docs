@@ -6,6 +6,9 @@ topics: ["GitHub Actions","Zenn","NotCMS","Webhook","Hono"]
 published: true
 ---
 
+この記事は[GitHub Actions Advent Calendar](https://qiita.com/advent-calendar/2024/github-actions) 20日目の記事です。
+
+
 ## はじめに
 
 
