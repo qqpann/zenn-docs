@@ -3,7 +3,7 @@ title: "Zennの記事をNotionから更新するGitHub Actionsの作り方 [NotC
 emoji: "⚡️"
 type: "tech"
 topics: ["GitHub Actions","Zenn","NotCMS","Webhook","Hono"]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -27,7 +27,7 @@ ZennやQiitaでは、GitHubと連携して、GitHubリポジトリで記事を�
 机に向かわずゴロゴロしながらでも書けて、ちゃんとしたエディタで、コミットまで自動化する方法はないものか……
 
 
-せや、Notionで書けばいい！
+せや、Notionで書けばいい！　そしてGitHub Actionsでコミットまで終わらせるんや！
 
 
 しかし、Notion APIを扱うのは手軽ではないし、[Notion Webhookは未完成](https://x.com/qqpann/status/1870068710117126542)でまだGitHub Actionsを呼び出すことができません。
@@ -305,6 +305,73 @@ route.post('/beta/forward_github_actions/:owner/:repo', async (c) => {
 
 このコードを使えば、Notion WebhookからGitHub Actionsへの変換を自前で行うことができます。
 
+
+## Appendix 3. ワークフローの中身
+
+
+GitHub Actionsの記事ということで、ワークフローの中身も一応解説しておきます。
+
+
+```yaml
+name: Sync NotCMS to Zenn
+
+on:
+  repository_dispatch:
+    types: [sync_zenn]
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 3 * * *" # 毎日午前3時に実行
+
+concurrency:
+  group: sync-notcms-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync_and_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Fetch data from NotCMS and generate Markdown
+        env:
+          NOTCMS_SECRET_KEY: ${{ secrets.NOTCMS_SECRET_KEY }}
+          NOTCMS_WORKSPACE_ID: ${{ secrets.NOTCMS_WORKSPACE_ID }}
+        run: pnpm sync
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Sync from NotCMS"
+          git push
+
+```
+
+- repository_dispatch：Webhookで呼び出すための設定。typeは必須
+- scheduleで実行すれば、Webhookを使わなくてもやりたいことは達成できます
+- concurrency：Notionのプロパティを更新すると意図せず大量にWebhookが呼ばれることもあるため、最後の一つだけ実行するように設定
+- `NOTCMS_SECRET_KEY` , `NOTCMS_WORKSPACE_ID` ：NotCMSを呼び出せるようにするために、シークレット環境変数に指定
+- `secrets.GITHUB_TOKEN` ： `GITHUB_` から始まる環境変数は予約語なので上書き指定できません。このGITHUB_TOKENを使ってコミットなどするためには、個人設定ではなく、リポジトリ設定で権限追加を行う必要があります（ステップ4. ）
 
 ## 参考
 
