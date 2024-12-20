@@ -1,0 +1,19 @@
+{
+  "name": "notcms-to-zenn-sync",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "sync": "dotenvx run -- ts-node scripts/sync-notcms-to-zenn.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "notcms": "0.0.12-development"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "^1.31.0",
+    "@types/node": "^20.17.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "zenn-cli": "^0.1.158"
+  }
+}
