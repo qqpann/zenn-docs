@@ -184,7 +184,7 @@ KEY:
 また、同じ方法を利用して、Qiitaの記事の管理や、静的生成されたWebサイトを管理することも可能ですので、ぜひ試してみてください。
 
 
-## Appendix1：Notionから記事を同期するコードの解説
+## Appendix 1. Notionから記事を同期するコードの解説
 
 
 コードの主要部分は次のとおりです：
@@ -250,7 +250,7 @@ const [page] = await nc.query.techblog.get(_page.id);
 また、GitHub連携の場合画像をどのように管理するかという問題も、NotCMSが画像を配信することで解決されています。（実際、画像処理に関するコードを書く必要がありませんでした）
 
 
-## Appendix2：Forward Webhook to GitHub Actions
+## Appendix 2. Forward Webhook to GitHub Actions
 
 
 ```typescript
