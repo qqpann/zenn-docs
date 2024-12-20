@@ -3,7 +3,7 @@ import type { Schema } from "notcms";
 
 export const schema = {
   techblog: {
-    id: "", // run $ npx notcms-kit pull; to get the id
+    id: "1542c5fe-b55c-8038-836e-daf920e3b20a",
     properties: {
       platform: "select",
       type: "select",
