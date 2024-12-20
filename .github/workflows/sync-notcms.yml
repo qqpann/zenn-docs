@@ -7,6 +7,10 @@ on:
   # schedule:
   #   - cron: "0 3 * * *" # 毎日午前3時に実行
 
+concurrency:
+  group: sync-notcms-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   sync_and_commit:
     runs-on: ubuntu-latest
