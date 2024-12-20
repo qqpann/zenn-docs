@@ -1,10 +1,13 @@
 ---
-title: "Zennの記事をNotionから更新するGitHub Actionを作った話 [NotCMS]"
+title: "Zennの記事をNotionから更新するGitHub Actionsの作り方 [NotCMS]"
 emoji: "⚡️"
 type: "tech"
 topics: ["GitHub Actions","Zenn","NotCMS","Webhook","Hono"]
 published: false
 ---
+
+## はじめに
+
 
 皆さん、どのように技術記事を書いていますか？
 
@@ -73,7 +76,7 @@ https://dash.notcms.com
 
 1. まずアカウント登録してログインします。
 2. ワークスペースを新しく作成します。
-3. この時、Notion連携を求められるため、先ほど複製したテンプレートの入っているページを連携範囲に指定します。
+3. この時、Notion連携を求められるため、先ほど複製したNotionテンプレートの入っているページを連携範囲に指定します。
 4. ワークスペースが作成されたら、データベースを追加します。NotionのデータベースのURLをコピーして、追加できます。
 
 ### 3. NotCMSのキーを取得し、環境変数に追加
@@ -117,7 +120,7 @@ npx notcms-kit pull
 ### 4. GitHub Tokenの権限を追加
 
 
-テンプレートに入っているワークフローでは、NotCMSからページを取得し、そのままコミットします。そのため、GITHUB_TOKENの権限を追加する必要があります。
+テンプレートに入っているワークフローは、NotCMSからページを取得し、そのままコミットします。そのため、GITHUB_TOKENの権限を追加する必要があります。
 
 
 リポジトリの設定（Settings）＞Code and automation＞Actions＞Generalで、
@@ -150,7 +153,7 @@ https://zenn.dev/zenn/articles/connect-to-github
 というのも、Notion WebhookにはBodyを追加することができず、GitHub Actionsをトリガーするために必要な[必須プロパティであるevent_type](https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-dispatch-event)を指定できないからです。
 
 
-そこで、NotCMSではwebhookリクエストにevent_typeを追加して送信するフォワードAPIを追加しています。
+そこで、NotCMSではwebhookリクエストにevent_typeを追加して送信するフォワードAPIを追加しました。次のように利用できます：
 
 
 ```toml
