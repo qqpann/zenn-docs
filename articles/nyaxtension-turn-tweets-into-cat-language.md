@@ -3,7 +3,7 @@ title: "Xで他人を猫に変える拡張機能 - nyaxtension"
 emoji: "😸"
 type: "tech"
 topics: ["クソアプリ","Chrome拡張機能","kuromoji","nyartifitial intelligence","個人開発"]
-published: false
+published: true
 ---
 
 ## はじめに
