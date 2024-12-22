@@ -1,8 +1,8 @@
 ---
-title: "nyaxtension"
+title: "Xで他人を猫に変える拡張機能 - nyaxtension"
 emoji: "😸"
 type: "tech"
-topics: ["クソアプリ","Chrome拡張機能","kuromoji.js","nyartifitial intelligence","個人開発"]
+topics: ["クソアプリ","Chrome拡張機能","kuromoji","nyartifitial intelligence","個人開発"]
 published: false
 ---
 
@@ -58,7 +58,7 @@ Xを統べる長者番付一位に猫語を喋らせることができます。
 これは拡張機能のアイコンをクリックすると表示されるポップアップで、「興味がないにゃん」をクリックするとそのツイートの内容が「いかにいくつかの例を示します：」の中に入ります。
 
 
-![%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2024-12-23_5.58.37.png](https://api.notcms.com/v1/images/fe5cf6b3-98f2-4fa8-b4ad-e803d7d21cdd)
+![%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2024-12-23_5.56.02.png](https://api.notcms.com/v1/images/fe5cf6b3-98f2-4fa8-b4ad-e803d7d21cdd)
 
 
 また、判定を行うプロンプトの変更も可能です。（「不快の定義：」の部分。デフォルトは1〜3番）
