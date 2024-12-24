@@ -3,7 +3,7 @@ title: "Honoを個人開発でフル活用して便利だったところ"
 emoji: "❤️‍🔥"
 type: "tech"
 topics: ["Hono","個人開発","Cloudflare","NotCMS","contest2024"]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -55,18 +55,15 @@ export function useVersions(wsId: string, dbId: string) {
   const $post = client.api.v1.ws[':ws_id'].db[':db_id'].page_snapshots.$post
   type PageSnapshot = InferResponseType<typeof $get>['pageSnapshots'][0]
 
-  const { data } = useSWR(
-    `/api/v1/ws/${wsId}/db/${dbId}/page_snapshots`,
-    async () => {
-      const res = await $get({
-        param: {
-          ws_id: wsId,
-          db_id: dbId,
-        },
-      })
-      return await res.json()
-    }
-  )
+  const { data } = useSWR(`/ws/${wsId}/db/${dbId}/page_snapshots`, async () => {
+    const res = await $get({
+      param: {
+        ws_id: wsId,
+        db_id: dbId,
+      },
+    })
+    return await res.json()
+  })
   const pageSnapshots = data?.pageSnapshots ?? []
 
   const createSnapshots = async (pageIds: string[] | undefined) => {
@@ -80,7 +77,7 @@ export function useVersions(wsId: string, dbId: string) {
       },
     })
     if (res.status === 200) {
-      await mutate(`/api/v1/ws/${wsId}/db/${dbId}/page_snapshots`)
+      await mutate(`/ws/${wsId}/db/${dbId}/page_snapshots`)
     }
     const data = await res.json()
     if (data.error != null) {
@@ -100,7 +97,7 @@ export function useVersions(wsId: string, dbId: string) {
 のようにSWRと組み合わせてfeatureごとにカスタムフックを作成すると見通しが良いでしょう。
 
 
-また、上記の例にもある通り、 `InferResponseType` を用いれば帰ってくる値の型を単独で取り出して使えるようになり、API側で一度定義すれば型の更新が完結するという体験が得られるのでおすすめです。
+また、上記の例の8行目にもある通り、 `InferResponseType` を用いれば帰ってくる値の型を単独で取り出して使えるようになり、API側で一度定義すれば型の更新が完結するという体験が得られるのでおすすめです。
 
 
 https://hono.dev/docs/guides/rpc
@@ -113,12 +110,21 @@ https://hono.dev/docs/guides/rpc
 
 
 ```typescript
+// env.d.ts
+interface CloudflareEnv {
+  ENV: string
+  SOME_SECRET: string
+  DB: D1Database
+  BUCKET: R2Bucket
+}
+```
+
+
+```typescript
 type Env = {
   Bindings: CloudflareEnv
   Variables: {
     workspace_id: string
-    db: DrizzleD1Database<typeof schema>
-    notion: ReturnType<typeof getNotionClient>
   }
 }
 new Hono<Env>()
