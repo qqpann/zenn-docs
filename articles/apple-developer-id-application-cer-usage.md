@@ -3,7 +3,7 @@ title: "AppleのDeveloper ID Application証明書（.cer）を正しく追加す
 emoji: "🔑"
 type: "tech"
 topics: ["Mac","Electron","Notarization","Codesign","Apple"]
-published: false
+published: true
 publication_name: "aidealab"
 ---
 
