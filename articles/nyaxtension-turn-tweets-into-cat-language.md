@@ -9,7 +9,7 @@ published: true
 ## はじめに
 
 
-```text
+```plain text
 ＿人人人人人人＿
 ＞　にゃーん　＜
 ￣Y^Y^Y^Y^Y^Y^￣
@@ -148,7 +148,7 @@ kuromojiを使用しました。
 
 
 ```typescript
-  web_accessible_resources: [{
+web_accessible_resources: [{
       resources: ['dict/*', ...]
 ```
 

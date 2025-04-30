@@ -367,7 +367,6 @@ jobs:
           git add .
           git commit -m "Sync from NotCMS"
           git push
-
 ```
 
 - repository_dispatch：Webhookで呼び出すための設定。typeは必須
