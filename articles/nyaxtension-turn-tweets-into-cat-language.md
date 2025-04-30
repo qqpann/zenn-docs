@@ -4,6 +4,7 @@ emoji: "😸"
 type: "tech"
 topics: ["クソアプリ","Chrome拡張機能","kuromoji","nyartifitial intelligence","個人開発"]
 published: true
+
 ---
 
 ## はじめに

@@ -4,6 +4,7 @@ emoji: "🔑"
 type: "tech"
 topics: ["Mac","Electron","Notarization","Codesign","Apple"]
 published: false
+publication_name: "aidealab"
 ---
 
 electronアプリを正式に配布するには、AppleのDeveloper ID Application証明書を取得してアプリを署名し、さらにNotarization（公証）を通す必要があります。
