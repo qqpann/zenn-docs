@@ -55,6 +55,11 @@ emoji: "${page.properties.emoji}"
 type: "${page.properties.type}"
 topics: ${JSON.stringify(page.properties.topics ?? [])}
 published: ${page.properties.published ? "true" : "false"}
+${
+  page.properties.publication_name
+    ? `publication_name: "${page.properties.publication_name}"`
+    : ""
+}
 ---
 ${page.content}`;
 

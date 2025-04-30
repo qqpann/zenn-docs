@@ -6,6 +6,7 @@ export const schema = {
     id: "1542c5fe-b55c-8038-836e-daf920e3b20a",
     properties: {
       platform: "select",
+      publication_name: "select",
       type: "select",
       published: "checkbox",
       topics: "multi_select",
