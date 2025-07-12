@@ -1,16 +1,16 @@
 ---
-title: "Stripe Node.js SDK v17からv18へのアップグレードで詰まったこと"
+title: "Stripe node SDK v17からv18へのアップグレードで詰まったこと"
 emoji: "🤑"
 type: "tech"
 topics: ["Stripe","AIコーディング","従量課金","Node.js","サブスクリプション"]
 published: false
-publication_name: "aidealab"
+
 ---
 
 ## はじめに
 
 
-2025年4月にStripe Node.js SDK v18がリリースされましたが、多くの破壊的変更が含まれています。実際にv17からv18にアップグレードする際にいくつかの問題に詰まったので、その解決方法をメモとして共有します。AIコーディングでも役に立てられるよう意識して記事にしました。
+2025年4月に`2025-03-31.basil`に対応したStripe Node.js SDK v18がリリースされましたが、多くの破壊的変更が含まれています。実際にv17からv18にアップグレードする際にいくつかの問題に詰まったので、その解決方法をメモとして共有します。AIコーディングでも役に立てられるよう意識して記事にしました。
 
 
 ## 主な破壊的変更
@@ -129,7 +129,7 @@ const prorationAmount = invoice.lines.data
 ## さいごに：AIコーディングにおける注意点
 
 
-Claude codeに更新作業を当初任せていましたが、放っておくと勝手に型アサーションを使って「deprecatedなフィールドは実際はあります」って言ってできたフリをしてきます。1, 2は適切な参考資料を繰り返し与えて参照するように指示することで解決できるようになってくれましたが、3は最後まで自力では解決できませんでした。結局、実際に送られてくるデータをデバッグ出力して読ませることで、parentの中にデータが移動したことに気づいてくれました。
+Claude codeに更新作業を当初任せていましたが、放っておくと勝手に型アサーションを使って「deprecatedなフィールドは実際はあります」って言って出来たフリをしてきます。1, 2は適切な参考資料を繰り返し与えて参照するように指示することで解決できるようになってくれましたが、3は最後まで自力では解決できませんでした。結局、実際に送られてくるデータをデバッグ出力して読ませることで、parentの中にデータが移動したことに気づいてくれました。
 
 
 この記事の存在によって、一度の参照でアップデートできるようになってくれるといいなという思いも込めて、記事に残しました。ぜひAIに読ませてみてください。
@@ -165,26 +165,12 @@ https://docs.stripe.com/billing/subscriptions/prorations#preview-proration
 コピー用
 
 
-[https://github.com/stripe/stripe-node/releases/tag/v18.0.0](https://github.com/stripe/stripe-node/releases/tag/v18.0.0)
-
-
-[https://docs.stripe.com/changelog/basil#2025-03-31.basil](https://docs.stripe.com/changelog/basil#2025-03-31.basil)
-
-
-[https://github.com/stripe/stripe-node/wiki/Migration-guide-for-v18](https://github.com/stripe/stripe-node/wiki/Migration-guide-for-v18)
-
-
-[https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-subscription-current-period-start-and-end](https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-subscription-current-period-start-and-end)
-
-
-[https://docs.stripe.com/changelog/basil/2025-03-31/checkout-legacy-subscription-upgrade](https://docs.stripe.com/changelog/basil/2025-03-31/checkout-legacy-subscription-upgrade)
-
-
-[https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-total-count-expansion](https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-total-count-expansion)
-
-
-[https://stripe.com/blog/introducing-stripes-new-api-release-process](https://stripe.com/blog/introducing-stripes-new-api-release-process)
-
-
-[https://docs.stripe.com/billing/subscriptions/prorations#preview-proration](https://docs.stripe.com/billing/subscriptions/prorations#preview-proration)
+[https://github.com/stripe/stripe-node/releases/tag/v18.0.0
+](https://github.com/stripe/stripe-node/releases/tag/v18.0.0)[https://docs.stripe.com/changelog/basil#2025-03-31.basil
+](https://docs.stripe.com/changelog/basil#2025-03-31.basil)[https://github.com/stripe/stripe-node/wiki/Migration-guide-for-v18
+](https://github.com/stripe/stripe-node/wiki/Migration-guide-for-v18)[https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-subscription-current-period-start-and-end
+](https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-subscription-current-period-start-and-end)[https://docs.stripe.com/changelog/basil/2025-03-31/checkout-legacy-subscription-upgrade
+](https://docs.stripe.com/changelog/basil/2025-03-31/checkout-legacy-subscription-upgrade)[https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-total-count-expansion
+](https://docs.stripe.com/changelog/basil/2025-03-31/deprecate-total-count-expansion)[https://stripe.com/blog/introducing-stripes-new-api-release-process
+](https://stripe.com/blog/introducing-stripes-new-api-release-process)[https://docs.stripe.com/billing/subscriptions/prorations#preview-proration](https://docs.stripe.com/billing/subscriptions/prorations#preview-proration)
 
