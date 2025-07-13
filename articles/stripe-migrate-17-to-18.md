@@ -1,9 +1,9 @@
 ---
-title: "Stripe node SDK v17からv18へのアップグレードで詰まったこと"
+title: "Stripe node SDK v17→v18アップグレードでのハマりどころ"
 emoji: "🤑"
 type: "tech"
 topics: ["Stripe","AIコーディング","従量課金","Node.js","サブスクリプション"]
-published: false
+published: true
 
 ---
 
@@ -72,7 +72,7 @@ const upcomingInvoice = await stripe.invoices.retrieveUpcoming({
 #### 解決方法
 
 
-新しい`createPreview()`メソッドを使用し、パラメータ構造も変更されています。
+新しい`createPreview()`メソッドが提供され、パラメータ構造も変更されています。
 
 
 ```typescript
