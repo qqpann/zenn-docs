@@ -2,7 +2,7 @@ name: Sync NotCMS to Zenn
 
 on:
   schedule:
-    - cron: "0 */3 * * *" # 3時間ごと
+    - cron: "0 19 * * *" # 毎日 4:00 JST
   workflow_dispatch:
   repository_dispatch:
     types: [sync_zenn]
