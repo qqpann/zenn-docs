@@ -1,10 +1,24 @@
 ---
-title: "Xで他人を猫に変える拡張機能 - nyaxtension"
-emoji: "😸"
-type: "tech"
-topics: ["クソアプリ","Chrome拡張機能","kuromoji","nyartifitial intelligence","個人開発"]
+作成日時: "2024-12-22T20:13:00.000Z"
+status: 公開済み
+platform: Zenn
+最終更新日時: "2026-10-31T16:31:00.000Z"
+publication_name: null
+type: tech
 published: true
-
+topics:
+  - クソアプリ
+  - Chrome拡張機能
+  - kuromoji
+  - nyartifitial intelligence
+  - 個人開発
+emoji: 😸
+slug: nyaxtension-turn-tweets-into-cat-language
+名前: Xで他人を猫に変える拡張機能 - nyaxtension
+title: Xで他人を猫に変える拡張機能 - nyaxtension
+notcms_id: 1642c5fe-b55c-80fe-8434-ff46f2b45a0e
+notcms_db: techblog
+notcms_last_synced_at: "2026-11-21T17:35:23.918Z"
 ---
 
 ## はじめに
@@ -149,7 +163,7 @@ kuromojiを使用しました。
 
 
 ```typescript
-web_accessible_resources: [{
+  web_accessible_resources: [{
       resources: ['dict/*', ...]
 ```
 

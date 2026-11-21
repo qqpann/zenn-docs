@@ -1,10 +1,24 @@
 ---
-title: "Zennの記事をNotionから更新するGitHub Actionsの作り方 [NotCMS]"
-emoji: "⚡️"
-type: "tech"
-topics: ["GitHub Actions","Zenn","NotCMS","Webhook","Hono"]
+作成日時: "2024-12-06T17:45:00.000Z"
+status: 公開済み
+platform: Zenn
+最終更新日時: "2026-10-31T16:31:00.000Z"
+publication_name: null
+type: tech
 published: true
-
+topics:
+  - GitHub Actions
+  - Zenn
+  - NotCMS
+  - Webhook
+  - Hono
+emoji: ⚡️
+slug: write-zenn-docs-from-notion-via-notcms
+名前: Zennの記事をNotionから更新するGitHub Actionsの作り方 [NotCMS]
+title: Zennの記事をNotionから更新するGitHub Actionsの作り方 [NotCMS]
+notcms_id: 1542c5fe-b55c-804b-883e-d423c8b80d24
+notcms_db: techblog
+notcms_last_synced_at: "2026-11-21T17:35:23.921Z"
 ---
 
 この記事は[GitHub Actions Advent Calendar](https://qiita.com/advent-calendar/2024/github-actions) 20日目の記事です。
@@ -368,6 +382,7 @@ jobs:
           git add .
           git commit -m "Sync from NotCMS"
           git push
+
 ```
 
 - repository_dispatch：Webhookで呼び出すための設定。typeは必須

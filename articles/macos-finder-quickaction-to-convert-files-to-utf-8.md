@@ -1,9 +1,19 @@
 ---
-title: "ファイルをUTF-8に変換するFinder クイックアクションを「ショートカット」で作る"
-emoji: ""
-type: "idea"
-topics: []
+作成日時: "2024-12-06T12:59:00.000Z"
+status: レビュー待ち
+platform: Zenn
+最終更新日時: "2026-11-21T17:21:00.000Z"
+publication_name: null
+type: idea
 published: false
+topics: []
+emoji: ""
+slug: macos-finder-quickaction-to-convert-files-to-utf-8
+名前: ファイルをUTF-8に変換するFinder クイックアクションを「ショートカット」で作る
+title: ファイルをUTF-8に変換するFinder クイックアクションを「ショートカット」で作る
+notcms_id: 1542c5fe-b55c-80de-9c06-cae1be1d491a
+notcms_db: techblog
+notcms_last_synced_at: "2026-11-21T17:35:23.923Z"
 ---
 
 ## Background
@@ -56,13 +66,13 @@ newfile="$dir/${name}_utf8.$ext"
 
 ![%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2024-12-06_22.55.57.png](https://api.notcms.com/v1/images/e94a89ed-0a1d-4720-ad8e-e53e4173ab0b)
 
+
 <details>
 <summary>ショートバージョン</summary>
-
 ![%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2024-12-06_22.04.01.png](https://api.notcms.com/v1/images/237bf76c-9534-431f-bd11-330939e78639)
-
-
 </details>
+
+
 
 
 ---

@@ -1,10 +1,24 @@
 ---
-title: "AppleのDeveloper ID Application証明書（.cer）を正しく追加する方法"
-emoji: "🔑"
-type: "tech"
-topics: ["Mac","Electron","Notarization","Codesign","Apple"]
+作成日時: "2025-04-30T13:33:00.000Z"
+status: 公開済み
+platform: Zenn
+最終更新日時: "2026-10-31T16:31:00.000Z"
+publication_name: aidealab
+type: tech
 published: true
-publication_name: "aidealab"
+topics:
+  - Mac
+  - Electron
+  - Notarization
+  - Codesign
+  - Apple
+emoji: 🔑
+slug: apple-developer-id-application-cer-usage
+名前: AppleのDeveloper ID Application証明書（.cer）を正しく追加する方法
+title: AppleのDeveloper ID Application証明書（.cer）を正しく追加する方法
+notcms_id: 1e52c5fe-b55c-80d9-8ee9-ea7547ee993b
+notcms_db: techblog
+notcms_last_synced_at: "2026-11-21T17:35:23.916Z"
 ---
 
 electronアプリを正式に配布するには、AppleのDeveloper ID Application証明書を取得してアプリを署名し、さらにNotarization（公証）を通す必要があります。

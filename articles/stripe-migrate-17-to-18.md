@@ -1,10 +1,24 @@
 ---
-title: "Stripe node SDK v17→v18アップグレードでのハマりどころ"
-emoji: "🤑"
-type: "tech"
-topics: ["Stripe","AIコーディング","従量課金","Node.js","サブスクリプション"]
+作成日時: "2025-07-12T07:28:00.000Z"
+status: 公開済み
+platform: Zenn
+最終更新日時: "2026-10-31T16:31:00.000Z"
+publication_name: null
+type: tech
 published: true
-
+topics:
+  - Stripe
+  - AIコーディング
+  - 従量課金
+  - Node.js
+  - サブスクリプション
+emoji: 🤑
+slug: stripe-migrate-17-to-18
+名前: Stripe node SDK v17→v18アップグレードでのハマりどころ
+title: Stripe node SDK v17→v18アップグレードでのハマりどころ
+notcms_id: 22e2c5fe-b55c-80d8-923f-d42e52de06e4
+notcms_db: techblog
+notcms_last_synced_at: "2026-11-21T17:35:23.778Z"
 ---
 
 ## はじめに
