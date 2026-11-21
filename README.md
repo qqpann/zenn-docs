@@ -14,14 +14,10 @@ NOTCMS_WORKSPACE_ID=<your workspace id>
 
 Get them from NotCMS dashboard.
 
-### Set up webhook
+### Sync
 
-```txt
-URL: https://api.notcms.com/beta/forward_github_actions/OWNER/REPO?event_type=sync_zenn
-KEY:
-  Authorization: Bearer github_pat_***
-```
+`.github/workflows/sync-notcms.yml` uses the [NotCMS Sync Action](https://github.com/qqpann/notcms/tree/main/sync-action) to write each Notion page to `articles/{slug}.md` and commit it to `main`.
 
-Replace `OWNER` and `REPO` with your actual repo name.
+It runs every 3 hours. To sync right away, run the workflow from the Actions tab ("Run workflow").
 
-Create a key by yourself with permission to trigger webhook.
+Pages without a `slug` are skipped. Zenn requires slugs of 12-50 characters (`a-z0-9`, `-`, `_`).
