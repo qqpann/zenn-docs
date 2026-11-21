@@ -1,51 +1,31 @@
 name: Sync NotCMS to Zenn
 
 on:
+  schedule:
+    - cron: "0 */3 * * *" # 3時間ごと
+  workflow_dispatch:
   repository_dispatch:
     types: [sync_zenn]
-  workflow_dispatch:
-  # schedule:
-  #   - cron: "0 3 * * *" # 毎日午前3時に実行
 
 concurrency:
-  group: sync-notcms-${{ github.ref }}
-  cancel-in-progress: true
+  group: sync-notcms
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
-  sync_and_commit:
+  pull:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      # Notion の techblog を articles/<slug>.md に書き出し、main に直接コミットする。
+      # slug が空のページはスキップされる。
+      - uses: qqpann/notcms/sync-action@v0
         with:
-          version: 9
-          run_install: false
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Fetch data from NotCMS and generate Markdown
-        env:
-          NOTCMS_SECRET_KEY: ${{ secrets.NOTCMS_SECRET_KEY }}
-          NOTCMS_WORKSPACE_ID: ${{ secrets.NOTCMS_WORKSPACE_ID }}
-        run: pnpm sync
-
-      - name: Commit and push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Sync from NotCMS"
-          git push
+          direction: pull
+          workspace_id: ${{ secrets.NOTCMS_WORKSPACE_ID }}
+          secret_key: ${{ secrets.NOTCMS_SECRET_KEY }}
+          file_path: "articles/{slug}.md"
+          on_change: commit
