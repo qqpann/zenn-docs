@@ -1,8 +1,8 @@
 ---
 作成日時: "2026-11-26T12:25:00.000Z"
-status: レビュー待ち
+status: 公開済み
 platform: Zenn
-最終更新日時: "2026-11-26T14:05:00.000Z"
+最終更新日時: "2026-11-27T12:14:00.000Z"
 publication_name: null
 type: tech
 published: true
@@ -15,7 +15,7 @@ slug: software-factory-explained
 title: ソフトウェアファクトリーとは何か — AI時代の開発ループを設計する
 notcms_id: 4242c5fe-b55c-813b-a604-ea18b8f1e6a7
 notcms_db: techblog
-notcms_last_synced_at: "2026-11-27T02:00:08.358Z"
+notcms_last_synced_at: "2026-11-28T01:45:06.270Z"
 ---
 
 最近、AIエージェントを使った開発の文脈で「ソフトウェアファクトリー（Software Factory）」という言葉を見かけるようになった。
